@@ -1,3 +1,13 @@
+This is a modified Vanitygen that can run on a Rock64 SBC without
+overheating it too much. Without sleep the SBC got over 70 degrees 
+and now around 50-55 at the cost of slower generation.
+This branch won't be merged with the original master.
+
+MaymarNL
+
+-------
+
+
 I'd like to present a standalone command line vanity address generator 
 called vanitygen.
 
