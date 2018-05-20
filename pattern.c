@@ -472,6 +472,7 @@ vg_output_timing_console(vg_context_t *vcp, double count,
 					     "[%d%% in %.1f%s]",
 					     (int) (100 * targ), time, unit);
 			}
+			
 			assert(p > 0);
 			rem -= p;
 			if (rem < 0)

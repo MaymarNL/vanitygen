@@ -100,7 +100,7 @@ vg_thread_loop(void *arg)
 	vxcp->vxc_key = pkey;
 	vxcp->vxc_binres[0] = vcp->vc_addrtype;
 	c = 0;
-	output_interval = 1000;
+	output_interval = 10000;
 	gettimeofday(&tvstart, NULL);
 
 	if (vcp->vc_format == VCF_SCRIPT) {
@@ -219,8 +219,11 @@ vg_thread_loop(void *arg)
 		c += i;
 		if (c >= output_interval) {
 			output_interval = vg_output_timing(vcp, c, &tvstart);
-			if (output_interval > 250000)
-				output_interval = 250000;
+			if (output_interval > 5000){
+				output_interval = 5000;
+                nanosleep((const struct timespec[]){{0, 250000000L}}, NULL);
+                printf("\e[2J\e[H");
+				}
 			c = 0;
 		}
 
